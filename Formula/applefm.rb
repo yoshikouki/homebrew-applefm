@@ -5,8 +5,8 @@ class Applefm < Formula
   sha256 "e6ef41ca02ea89b25511b4dfb45ad5656303de2ff6f71abfbfa14e9805db715e"
   license "MIT"
 
-  depends_on macos: :tahoe
   depends_on xcode: ["26.0", :build]
+  depends_on macos: :tahoe
 
   def install
     # FoundationModels macro plugin (libFoundationModelsMacros.dylib) only exists
