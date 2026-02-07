@@ -6,8 +6,15 @@ class Applefm < Formula
   license "MIT"
 
   depends_on macos: :tahoe
+  depends_on xcode: ["26.0", :build]
 
   def install
+    # FoundationModels macro plugin (libFoundationModelsMacros.dylib) only exists
+    # in Xcode's SDK, not in CommandLineTools. Ensure Xcode's developer directory
+    # is used for the build.
+    ENV["DEVELOPER_DIR"] = Utils.safe_popen_read("xcode-select", "-p").chomp
+    ENV["SDKROOT"] = Utils.safe_popen_read("xcrun", "--show-sdk-path").chomp
+
     system "swift", "build",
            "--disable-sandbox",
            "-c", "release",
@@ -20,6 +27,7 @@ class Applefm < Formula
       applefm requires:
         - macOS 26+ (Tahoe)
         - Apple Silicon Mac with Apple Intelligence enabled
+        - Xcode 26+ (for building)
       Check availability: applefm model availability
     EOS
   end
