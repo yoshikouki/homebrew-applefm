@@ -1,8 +1,8 @@
 class Applefm < Formula
   desc "Thin CLI wrapper for Apple Foundation Models framework"
   homepage "https://github.com/yoshikouki/applefm"
-  url "https://github.com/yoshikouki/applefm/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "e6ef41ca02ea89b25511b4dfb45ad5656303de2ff6f71abfbfa14e9805db715e"
+  url "https://github.com/yoshikouki/applefm/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "6dd37170c9e1d424d96e5a27f7d392c56257dbd3fd3021a8bbfb459f729aef7e"
   license "MIT"
 
   depends_on xcode: ["26.0", :build]
